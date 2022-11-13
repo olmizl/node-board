@@ -1,0 +1,64 @@
+<%- include("include/header") %>
+<main id="main">
+  <form action="/register" method="POST" id="join" class="formBox" enctype="multipart/form-data">
+    <!-- 서버로 파일 전송할때 form태그안에 enctype="multipart/form-data" 필수 -->
+    <div class="inputBox">
+      <label>
+        <span class="label">제목</span>
+        <input type="text" id="title" name="title" placeholder="제목을 입력하세요" />
+      </label>
+    </div>
+    <div class="inputBox">
+      <label>
+        <span class="label">날짜</span>
+        <input type="text" id="date" name="date" placeholder="날짜" />
+      </label>
+    </div>
+    <div class="inputBox">
+      <label>
+        <span class="label">카테고리</span>
+        <div>
+          <ul class="categoryList">
+            <li>
+              <label for="스릴러"><span>paint</span><input type="checkbox" value="paint" name="category" /></label>
+            </li>
+            <li>
+              <label for="로맨스"><span>photo</span><input type="checkbox" value="photo" name="category" /></label>
+            </li>
+            <li>
+              <label for="코믹"><span>sketch</span><input type="checkbox" value="sketch" name="category" /></label>
+            </li>
+          </ul>
+        </div>
+      </label>
+    </div>
+    <div class="inputBox">
+      <label>
+        <span class="label">내용</span>
+        <textarea cols="30" rows="10" id="desc" name="desc"> </textarea>
+      </label>
+    </div>
+    <div class="inputBox">
+      <label>
+        <span class="label">평점</span>
+        <input type="number" max="5" min="0" step="0.1" id="point" name="point" />
+      </label>
+    </div>
+    <div class="inputBox">
+      <label>
+        <span class="label">대표이미지</span>
+        <input type="file" id="image" name="image" />
+      </label>
+    </div>
+
+    <div class="btns">
+      <button type="submit" id="btnJoin">확인</button>
+      <button type="reset">취소</button>
+    </div>
+  </form>
+</main>
+<script>
+  const date = document.querySelector("#date");
+  const picker = new Lightpick({ field: date, format: "YYYY-MM-DD" });
+</script>
+<%- include("include/footer") %>
